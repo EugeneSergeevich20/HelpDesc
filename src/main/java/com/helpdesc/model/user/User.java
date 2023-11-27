@@ -1,12 +1,23 @@
 package com.helpdesc.model.user;
 
+import com.helpdesc.model.ApplicationProblem;
+import jakarta.persistence.*;
+
+import java.util.List;
+
+@Entity
+@Table(name = "tb_user")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String surname;
     private String patronymic;
     private String username;
     private String password;
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     public User(String name, String surname, String patronymic, String username, String password) {

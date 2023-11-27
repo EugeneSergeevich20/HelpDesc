@@ -1,23 +1,21 @@
 package com.helpdesc.controller;
 
 import com.helpdesc.model.user.Client;
-import org.springframework.ui.Model;
-import com.helpdesc.model.user.User;
-import com.helpdesc.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.helpdesc.service.UserRegistrationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class UserController {
+@RequestMapping("/auth")
+public class AuthController {
 
-    @Autowired
-    private final UserService userService;
+    private final UserRegistrationService userRegistrationService;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
+    public AuthController(UserRegistrationService userRegistrationService) {
+        this.userRegistrationService = userRegistrationService;
     }
 
     @GetMapping("/registration")
@@ -27,14 +25,8 @@ public class UserController {
 
     @PostMapping("/registration")
     public String performRegistration(@ModelAttribute("client") Client client){
-        userService.register(client);
+        userRegistrationService.register(client);
 
         return "redirect:/home";
-    }
-
-    @GetMapping("/showUsers")
-    public String showUsers(Model model){
-        model.addAttribute("users", userService.getUserList());
-        return "users";
     }
 }

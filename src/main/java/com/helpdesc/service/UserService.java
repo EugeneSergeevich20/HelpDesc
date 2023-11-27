@@ -19,15 +19,16 @@ public class UserService {
 
         Master master1 = new Master("NameMaster", "SurnameMaster", "PatronymicMaster", "UsernameMaster", "1234");
         master1.setRole(Role.ROLE_MASTER);
+
         User user = new User("Admin", "Admin", "Admin", "Admin", "Admin");
         user.setRole(Role.ROLE_ADMIN);
+
         userList.add(master1);
         userList.add(user);
     }
 
     public void register(Client client){
         client.setRole(Role.ROLE_CLIENT);
-        client.setTest("test");
         userList.add(client);
     }
 

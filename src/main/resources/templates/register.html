@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form th:method="POST" th:action="@{/registration}" th:object="${client}">
+<form th:method="POST" th:action="@{/auth/registration}" th:object="${client}">
     <input placeholder="Name" type="text" th:field="*{name}">
     </br>
     <input placeholder="Surname" type="text" th:field="*{surname}">
