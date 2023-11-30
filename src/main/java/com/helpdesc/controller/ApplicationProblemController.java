@@ -23,7 +23,7 @@ public class ApplicationProblemController {
 
     @GetMapping("/problems")
     public String getProblems(Model model){
-        model.addAttribute("problems", applicationProblemService.getListProblems());
+        //model.addAttribute("problems", applicationProblemService.getListProblems());
         return "problems";
     }
 

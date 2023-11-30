@@ -13,6 +13,9 @@
     <input placeholder="Patronymic" type="text" th:field="*{patronymic}">
     </br>
     <input placeholder="Username" type="text" th:field="*{username}">
+    <div class="register_error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+        Пользователь с таким именем уже существует!
+    </div>
     </br>
     <input placeholder="Password" type="password" th:field="*{password}">
     </br>

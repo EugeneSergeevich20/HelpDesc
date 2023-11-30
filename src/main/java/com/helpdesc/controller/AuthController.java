@@ -18,6 +18,11 @@ public class AuthController {
         this.userRegistrationService = userRegistrationService;
     }
 
+    @GetMapping("/login")
+    public String loginPage(){
+        return "login";
+    }
+
     @GetMapping("/registration")
     public String registrationPage(@ModelAttribute("client") Client client){
         return "register";
@@ -27,6 +32,6 @@ public class AuthController {
     public String performRegistration(@ModelAttribute("client") Client client){
         userRegistrationService.register(client);
 
-        return "redirect:/home";
+        return "redirect:/auth/login";
     }
 }
